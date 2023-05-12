@@ -1,8 +1,8 @@
 # Rakamin VIX - Core Initiative Backend Virtual Internship Program
 
-Welcome to my solution for the final assignment of the Core Initiative Backend Virtual Internship Program! This is my second attempt at taking Rakamin Virtual Experience (VIX) having the role of Golang Backend Engineer intern. This repository is the result of my efforts to complete the final assignment, which aims to evaluate my understanding and implementation of CRUD operations, routing, clean architecture, and managing a database.
-
 ![Completion status: completed](https://img.shields.io/badge/COMPLETION%20STATUS-COMPLETED-success?style=for-the-badge)
+
+Welcome to my solution for the final assignment of the Core Initiative Backend Virtual Internship Program! This is my second attempt at taking Rakamin Virtual Experience (VIX) having the role of Golang Backend Engineer intern. This repository is the result of my efforts to complete the final assignment, which aims to evaluate my understanding and implementation of CRUD operations, routing, clean architecture, and managing a database.
 
 ## What's in this Repository?
 
@@ -41,5 +41,5 @@ Here are some additional resources to help you understand more about the app con
 ![database-design](database-design.png)
 
 ### Conclusion
-My second attempt at the Rakamin VIX as a backend engineer provided me with new insights and sharpened my knowledge about backend development. Even though this assignment was easier and less complex than my previous attempt, it still covers the fundamental things that every backend engineer should know. It also taught me the importance of adapting to the company's way/format of achieving the same goal. I believe that this program is another excellent resource for anyone interested in backend development, particularly in Golang.
+In conclusion, my second attempt at the Rakamin VIX as a backend engineer provided me with new insights and sharpened my knowledge about backend development. Even though this assignment was easier and less complex than my previous attempt, it still covers the fundamental things that every backend engineer should know. It also taught me the importance of adapting to the company's way/format of achieving the same goal. I believe that this program is another excellent resource for anyone interested in backend development, particularly in Golang.
  
