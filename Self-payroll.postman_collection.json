@@ -1,0 +1,1268 @@
+{
+	"info": {
+		"_postman_id": "74fbe4be-533b-464e-84ba-ff6cfa775660",
+		"name": "Self-payroll",
+		"description": "Fitur utama dari web service ini adalah employee dapat melakukan penarikan gaji secara mandiri setiap bulannya.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12961186"
+	},
+	"item": [
+		{
+			"name": "Position",
+			"item": [
+				{
+					"name": "New Position",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kadiv. Komunikasi\", \r\n    \"salary\": 100000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/positions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"positions"
+							]
+						},
+						"description": "Membuat position baru payload berupa JSON propery name dan salary bersifat required"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Kadiv. Komunikasi\", \r\n    \"salary\": 100000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/positions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"positions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 26 Sep 2022 15:51:34 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "198"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"id\": 6,\n        \"name\": \"Kadiv. Komunikasi\",\n        \"salary\": 100000,\n        \"created_at\": \"2022-09-26T22:51:34.959990926+07:00\",\n        \"updated_at\": \"2022-09-26T22:51:34.959990926+07:00\"\n    }\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"\", \r\n    \"salary\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/positions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"positions"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 26 Sep 2022 15:51:52 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Error validation\",\n    \"error\": {\n        \"name\": \"cannot be blank\",\n        \"salary\": \"cannot be blank\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Position",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kadiv. Komunikasi\", \r\n    \"salary\": 100000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/positions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"positions"
+							]
+						},
+						"description": "Membuat position baru payload berupa JSON propery name dan salary bersifat required"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"CTOP\", \r\n    \"salary\": 9999\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/positions/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"positions",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 May 2023 08:15:47 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "192"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success edit\",\n    \"data\": {\n        \"id\": \"3\",\n        \"name\": \"CTOP\",\n        \"salary\": 9999,\n        \"created_at\": \"2023-05-11 15:15:21.635316 +0700 WIB\",\n        \"updated_at\": \"2023-05-11 15:15:47.550346 +0700 WIB\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch Position",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/positions?limit=10&skip=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"positions"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "skip",
+									"value": "1"
+								}
+							]
+						},
+						"description": "DIgunakan untuk menampilkan semua data position dengan parameter limit dan skip"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/positions?limit=10&skip=1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"positions"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "skip",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 26 Sep 2022 15:53:47 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "482"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"id\": 4,\n            \"name\": \"Kadiv. Komunikasi\",\n            \"salary\": 120,\n            \"created_at\": \"2022-09-26T22:16:01.253337+07:00\",\n            \"updated_at\": \"2022-09-26T22:16:01.253337+07:00\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Kadiv. Komunikasi\",\n            \"salary\": 120,\n            \"created_at\": \"2022-09-26T22:20:56.399859+07:00\",\n            \"updated_at\": \"2022-09-26T22:20:56.399859+07:00\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Kadiv. Komunikasi\",\n            \"salary\": 100000,\n            \"created_at\": \"2022-09-26T22:51:34.95999+07:00\",\n            \"updated_at\": \"2022-09-26T22:51:34.95999+07:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Position",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/positions/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"positions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3",
+									"description": "required"
+								}
+							]
+						},
+						"description": "Digunakan untuk menghapus deta position berdasarkan ID"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/positions/:id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"positions",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 26 Sep 2022 16:34:52 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"success\",\n    \"data\": \"\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Detail Position",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/positions/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"positions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4",
+									"description": "required"
+								}
+							]
+						},
+						"description": "DIgunakam untuk menampilkan detail informasi position berdasarkan ID"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/positions/:id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"positions",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 26 Sep 2022 16:52:10 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "189"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"success\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"Kadiv. Komunikasi\",\n        \"salary\": 120,\n        \"created_at\": \"2022-09-26T22:16:01.253337+07:00\",\n        \"updated_at\": \"2022-09-26T22:16:01.253337+07:00\"\n    }\n}"
+						}
+					]
+				}
+			],
+			"description": "Resource position merupakan jabatan yang ada dalam perusahaan, perhitungan gaji akan berdasarkan jabatan yang dimiliki oleh tiap employee"
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "New Employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"secret_id\": \"122244\",\r\n    \"name\":\"Anisa Subandono\",\r\n    \"email\":\"anisa@example.com\",\r\n     \"phone\": \"0822436227\", \r\n     \"address\":\"Jalan Kemanggisan No. 4\",\r\n     \"position_id\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/employee",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employee"
+							]
+						},
+						"description": "Membuat employee baru"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"secret_id\": \"122244\",\r\n    \"name\":\"Anisa Subandono\",\r\n    \"email\":\"anisa@example.com\",\r\n     \"phone\": \"0822436227\", \r\n     \"address\":\"Jalan Kemanggisan No. 4\",\r\n     \"position_id\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/employee",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 May 2023 08:08:41 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "374"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"success\",\n    \"data\": {\n        \"id\": 9,\n        \"secret_id\": \"$2a$12$8nSGP8vxqJeYJS3mwHLuceD24gJtShTpuneVqLTFVdlpA.2xdSKHq\",\n        \"name\": \"Anisa Subandono\",\n        \"email\": \"anisa@example.com\",\n        \"phone\": \"0822436227\",\n        \"address\": \"Jalan Kemanggisan No. 4\",\n        \"position_id\": 1,\n        \"position\": null,\n        \"created_at\": \"2023-05-11 15:08:41.057702 +0700 WIB\",\n        \"updated_at\": \"2023-05-11 15:08:41.057702 +0700 WIB\"\n    }\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"secret_id\": \"122244\",\r\n    \"name\":\"Amalia\",\r\n    \"email\":\"amalia@example.com\",\r\n     \"phone\": \"08228436227\", \r\n     \"address\":\"Jalan Kemanggisan No. 4\",\r\n     \"position_id\":4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/employee",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 May 2023 08:09:15 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"\",\n    \"error\": \"position id not valid \"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"secret_id\": \"122244\",\r\n    \"name\":\"Anisa Subandono\",\r\n    \"email\":\"anisa@example.com\",\r\n     \"phone\": \"0822436227\", \r\n     \"address\":\"Jalan Kemanggisan No. 4\",\r\n     \"position_id\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/employee",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employee"
+							]
+						},
+						"description": "Membuat employee baru"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"secret_id\": \"abcde\",\r\n    \"name\":\"Anisa Aliman\",\r\n    \"email\":\"anisa@example.com\",\r\n    \"phone\": \"0822436227\", \r\n    \"address\":\"Jalan Kemanggisan No. 4\",\r\n    \"position_id\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/employee/10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"employee",
+										"10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 May 2023 08:13:57 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "377"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success edit\",\n    \"data\": {\n        \"id\": 10,\n        \"secret_id\": \"$2a$12$c7475huLu6VmY27X4xcgSu9ggev4lPGGYDPsrwfj/j0df9B.6DlQ6\",\n        \"name\": \"Anisa Aliman\",\n        \"email\": \"anisa@example.com\",\n        \"phone\": \"0822436227\",\n        \"address\": \"Jalan Kemanggisan No. 4\",\n        \"position_id\": 1,\n        \"position\": null,\n        \"created_at\": \"2023-05-11 15:12:00.214678 +0700 WIB\",\n        \"updated_at\": \"2023-05-11 15:13:57.695377 +0700 WIB\"\n    }\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"secret_id\": \"abcde\",\r\n    \"name\":\"Anisa Aliman\",\r\n    \"email\":\"anisa@example.com\",\r\n    \"phone\": \"0822436227\", \r\n    \"position_id\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/employee/10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"employee",
+										"10"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 May 2023 08:15:00 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Error validation\",\n    \"error\": {\n        \"address\": \"cannot be blank\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch Employee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/employee?limit=10&skip=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employee"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "skip",
+									"value": "1"
+								}
+							]
+						},
+						"description": "DIgunakan untuk menampilkan semua data position dengan parameter limit dan skip"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/employee?limit=10&skip=1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"employee"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "skip",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Sep 2022 07:32:38 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "454"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"secret_id\": \"122244\",\n            \"name\": \"Anisa Subandono\",\n            \"email\": \"anisa@example.com\",\n            \"phone\": \"0822436227\",\n            \"address\": \"Jalan Kemanggisan No. 4\",\n            \"position_id\": 4,\n            \"position\": {\n                \"id\": 4,\n                \"name\": \"Kadiv. Komunikasi\",\n                \"salary\": 120,\n                \"created_at\": \"2022-09-26T22:16:01.253337+07:00\",\n                \"updated_at\": \"2022-09-26T22:16:01.253337+07:00\"\n            },\n            \"created_at\": \"2022-09-27T14:32:19.350366+07:00\",\n            \"updated_at\": \"2022-09-27T14:32:19.350366+07:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/employee/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4",
+									"description": "required"
+								}
+							]
+						},
+						"description": "Digunakan untuk menghapus deta position berdasarkan ID"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/employee/:id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"employee",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4",
+											"description": "required"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Sep 2022 07:08:53 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"success\",\n    \"data\": \"\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Detail Employee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/employee/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "required"
+								}
+							]
+						},
+						"description": "DIgunakam untuk menampilkan detail informasi position berdasarkan ID"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/employee/:id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"employee",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "required"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Sep 2022 07:33:16 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "312"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"secret_id\": \"122244\",\n        \"name\": \"Anisa Subandono\",\n        \"email\": \"anisa@example.com\",\n        \"phone\": \"0822436227\",\n        \"address\": \"Jalan Kemanggisan No. 4\",\n        \"position_id\": 4,\n        \"position\": null,\n        \"created_at\": \"2022-09-27T14:32:19.350366+07:00\",\n        \"updated_at\": \"2022-09-27T14:32:19.350366+07:00\"\n    }\n}"
+						}
+					]
+				}
+			],
+			"description": "Resource position merupakan jabatan yang ada dalam perusahaan, perhitungan gaji akan berdasarkan jabatan yang dimiliki oleh tiap employee"
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Get Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/company",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"company"
+							]
+						},
+						"description": "Mendapatkan detail data dari company"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/company",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"company"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Sep 2022 13:44:26 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "227"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"success\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"PT SEJAHTERA SELAMANYA\",\n        \"address\": \"Jln. Malioboro\",\n        \"balance\": 50000000,\n        \"created_at\": \"2022-09-27T20:44:02.825542+07:00\",\n        \"updated_at\": \"2022-09-27T20:44:02.825542+07:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create or Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"PT SEJAHTERA SELAMANYA\",\r\n    \"balance\": 20000000,\r\n    \"address\":\"Jln. Malioboro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/company",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"company"
+							]
+						},
+						"description": "membuat atau melalukan update data company"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"PT SEJAHTERA SELAMANYA\",\r\n    \"balance\": 20000000,\r\n    \"address\":\"Jln. Malioboro\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/company",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"company"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Sep 2022 13:44:10 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "230"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"success\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"PT SEJAHTERA SELAMANYA\",\n        \"address\": \"Jln. Malioboro\",\n        \"balance\": 20000000,\n        \"created_at\": \"2022-09-27T20:44:02.825542+07:00\",\n        \"updated_at\": \"2022-09-27T20:44:10.576026418+07:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Topup Balance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"balance\":222222\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/company/topup",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"company",
+								"topup"
+							]
+						},
+						"description": "Digunakan untuk melakukan topup balance dari perusahaan"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"balance\":222222\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/company/topup",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"company",
+										"topup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Sep 2022 13:47:37 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "225"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"success\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"PT SEJAHTERA SELAMANYA\",\n        \"address\": \"Jln. Malioboro\",\n        \"balance\": 888888,\n        \"created_at\": \"2022-09-27T20:44:02.825542+07:00\",\n        \"updated_at\": \"2022-09-27T20:47:37.253564+07:00\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Get transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/transactions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"transactions"
+							]
+						},
+						"description": "Digunakan untuk menampilkan daftar transaction yang ada dalam sistem"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/transactions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"transactions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Sep 2022 14:17:29 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "382"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"amount\": 222222,\n            \"note\": \"Topup balance company\",\n            \"type\": \"credit\",\n            \"created_at\": \"2022-09-27T21:09:19.845187+07:00\",\n            \"updated_at\": \"2022-09-27T21:09:19.845187+07:00\"\n        },\n        {\n            \"id\": 2,\n            \"amount\": 222222,\n            \"note\": \"Topup balance company\",\n            \"type\": \"credit\",\n            \"created_at\": \"2022-09-27T21:09:38.198909+07:00\",\n            \"updated_at\": \"2022-09-27T21:09:38.198909+07:00\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Withdraw",
+			"item": [
+				{
+					"name": "Withdraw Salary",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"secret_id\": \"122244\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/employee/withdraw",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employee",
+								"withdraw"
+							]
+						},
+						"description": "Digunakan untuk melakukan penarikan dana, balance perushaan akan berkurang otomatis sesuai dengan salary yang diterima oleh employee.\n\nSemua transaksi akan tertulis pada endpoint transactions"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 2,\r\n    \"secret_id\": \"122244\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/employee/withdraw",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"employee",
+										"withdraw"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Sep 2022 15:24:16 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success withdraw salary\",\n    \"data\": \"\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:1213"
+		}
+	]
+}
