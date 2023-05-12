@@ -16,13 +16,12 @@ Here are some of the libraries and frameworks that I used to build the app:
 ### The Task at Hand
 
 The final assignment required me to complete the following tasks:
-1. Having a routing table complying with the following postman collection. 
-[See the collection](Self-payroll.postman_collection.json)
-2. Implementing CRUD operations (create, read, update, delete) to the User data
-3. Implementing CRUD operations (create, read, update, delete) to the Position data
-3. Able to top up the balance of the company
+1. Having a routing table complying with this [Postman collection](Self-payroll.postman_collection.json)
+2. Implementing CRUD operations (create, read, update, delete) to the User data.
+3. Implementing CRUD operations (create, read, update, delete) to the Position data.
+3. Able to top up the balance of the company.
 4. Able to withdraw a user's salary by providing the ID and the secret ID of the user, the salary number will be based on the job position of the user.
-5. There is log data of top-up and withdrawal events
+5. There is log data of top-up and withdrawal events.
 6. Implementing clean architecture.
 
 ### Additional Resources
