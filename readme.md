@@ -2,7 +2,7 @@
 
 ![Completion status: completed](https://img.shields.io/badge/COMPLETION%20STATUS-COMPLETED-success?style=for-the-badge)
 
-Welcome to my solution for the final assignment of the Core Initiative Backend Virtual Internship Program! This is my second attempt at taking Rakamin Virtual Experience (VIX) having the role of Golang Backend Engineer intern. This repository is the result of my efforts to complete the final assignment, which aims to evaluate my understanding and implementation of CRUD operations, routing, clean architecture, and managing a database.
+Welcome to my solution for the final assignment of the Core Initiative Backend Virtual Internship Program! This is my second attempt at taking Rakamin Virtual Experience (VIX) having the role of Golang Backend Engineer intern. This repository is the result of my efforts to complete the final assignment, which aims to evaluate my understanding and implementation of CRUD operations, routing, clean architecture, and database management.
 
 ## What's in this Repository?
 
