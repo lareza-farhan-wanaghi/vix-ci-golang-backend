@@ -41,5 +41,5 @@ Here are some additional resources to help you understand more about the app con
 ![database-design](database-design.png)
 
 ### Conclusion
-In conclusion, my second attempt at the Rakamin VIX as a backend engineer provided me with new insights and sharpened my knowledge about backend development. Even though this assignment was easier and less complex than my previous attempt, it still covers the fundamental things that every backend engineer should know. It also taught me the importance of adapting to the company's way/format of achieving the same goal. I believe that this program is another excellent resource for anyone interested in backend development, particularly in Golang.
+In conclusion, my second attempt at the Rakamin VIX as a backend engineer provided me with new insights and sharpened my knowledge about backend development. Even though this assignment was easier and less complex than my previous attempt, it still covered the fundamental things of backend development. It also taught me the importance of adapting to the company's way/format of achieving the same goal. I believe that this program is another excellent resource for anyone interested in backend development, particularly in Golang.
  
