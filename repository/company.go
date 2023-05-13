@@ -13,10 +13,12 @@ type companyRepository struct {
 	Cfg config.Config
 }
 
+// NewCompanyRepository returns the repository of the company model
 func NewCompanyRepository(cfg config.Config) model.CompanyRepository {
 	return &companyRepository{Cfg: cfg}
 }
 
+// Get gets company data
 func (c *companyRepository) Get(ctx context.Context) (*model.Company, error) {
 	company := new(model.Company)
 
@@ -27,6 +29,7 @@ func (c *companyRepository) Get(ctx context.Context) (*model.Company, error) {
 	return company, nil
 }
 
+// CreateOrUpdate creates company data or updates the existing one
 func (c *companyRepository) CreateOrUpdate(ctx context.Context, company *model.Company) (*model.Company, error) {
 	companyModel := new(model.Company)
 
@@ -41,7 +44,6 @@ func (c *companyRepository) CreateOrUpdate(ctx context.Context, company *model.C
 		return nil, err
 	}
 
-	// TODO: tuliskan baris code untuk update data company
 	if err := c.Cfg.Database().WithContext(ctx).
 		Model(&model.Company{}).Where("id = ?", companyModel.ID).Updates(company).Find(companyModel).Error; err != nil {
 		return nil, err
@@ -50,13 +52,13 @@ func (c *companyRepository) CreateOrUpdate(ctx context.Context, company *model.C
 	return companyModel, nil
 }
 
+// DebitBalance decreases the company's balance
 func (c *companyRepository) DebitBalance(ctx context.Context, amount int, note string) error {
 	company, err := c.Get(ctx)
 	if err != nil {
 		return errors.New("company data not found")
 	}
 
-	// TODO: tuliskan baris code untuk mengurangi balance
 	if company.Balance < amount {
 		return errors.New("insufficient company's balance")
 	}
@@ -77,13 +79,13 @@ func (c *companyRepository) DebitBalance(ctx context.Context, amount int, note s
 	return nil
 }
 
+// AddBalance increases the company's balance
 func (c *companyRepository) AddBalance(ctx context.Context, balance int) (*model.Company, error) {
 	company, err := c.Get(ctx)
 	if err != nil {
 		return nil, errors.New("company data not found")
 	}
 
-	// TODO: tuliskan baris code untuk topup balance
 	company.Balance += balance
 
 	if err := c.Cfg.Database().WithContext(ctx).Model(company).Updates(company).Find(company).Error; err != nil {

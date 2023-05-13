@@ -20,6 +20,7 @@ type userUsecase struct {
 	transactionRepo model.TransactionRepository
 }
 
+// NewUserUsecase returns the usecase implementation of the user group path
 func NewUserUsecase(user model.UserRepository, post model.PositionRepository, company model.CompanyRepository, transaction model.TransactionRepository) model.UserUsecase {
 	return &userUsecase{
 		userRepository:  user,
@@ -29,6 +30,7 @@ func NewUserUsecase(user model.UserRepository, post model.PositionRepository, co
 	}
 }
 
+// WithdrawSalary handles the usecase of the path that withdraws a user's salary
 func (p *userUsecase) WithdrawSalary(ctx context.Context, req *request.WithdrawRequest) error {
 	user, err := p.userRepository.FindByID(ctx, req.ID)
 	if err != nil {
@@ -64,6 +66,7 @@ func (p *userUsecase) WithdrawSalary(ctx context.Context, req *request.WithdrawR
 	return nil
 }
 
+// GetByID handles the usecase of the path that gets user data by its id
 func (p *userUsecase) GetByID(ctx context.Context, id int) (*response.UserResp, error) {
 	user, err := p.userRepository.FindByID(ctx, id)
 	if err != nil {
@@ -74,8 +77,8 @@ func (p *userUsecase) GetByID(ctx context.Context, id int) (*response.UserResp, 
 	return resp, nil
 }
 
+// FetchUser handles the usecase of the path that gets all user data
 func (p *userUsecase) FetchUser(ctx context.Context, limit, offset int) ([]*response.UserResp, error) {
-
 	users, err := p.userRepository.Fetch(ctx, limit, offset)
 	if err != nil {
 		return nil, err
@@ -90,6 +93,7 @@ func (p *userUsecase) FetchUser(ctx context.Context, limit, offset int) ([]*resp
 
 }
 
+// DestroyUser handles the usecase of the path that deletes user data
 func (p *userUsecase) DestroyUser(ctx context.Context, id int) error {
 	err := p.userRepository.Delete(ctx, id)
 	if err != nil {
@@ -99,6 +103,7 @@ func (p *userUsecase) DestroyUser(ctx context.Context, id int) error {
 	return nil
 }
 
+// EditUser handles the usecase of the path that updates user data
 func (p *userUsecase) EditUser(ctx context.Context, id int, req *request.UserRequest) (*response.UserResp, error) {
 	_, err := p.userRepository.FindByID(ctx, id)
 	if err != nil {
@@ -127,6 +132,7 @@ func (p *userUsecase) EditUser(ctx context.Context, id int, req *request.UserReq
 	return resp, nil
 }
 
+// StoreUser handles the usecase of the path that inserts user data
 func (p *userUsecase) StoreUser(ctx context.Context, req *request.UserRequest) (*response.UserResp, error) {
 	secretHash, err := helper.HashPassword(req.SecretID)
 	if err != nil {

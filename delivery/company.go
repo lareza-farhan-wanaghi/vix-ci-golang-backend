@@ -17,21 +17,20 @@ type CompanyDelivery interface {
 	Mount(group *echo.Group)
 }
 
+// NewCompanyDelivery returns the delivery implementation of the company group path
 func NewCompanyDelivery(companyUsecase model.CompanyUsecase) CompanyDelivery {
 	return &companyDelivery{companyUsecase: companyUsecase}
 }
 
+// Mount mounts the available paths of the company group path
 func (comp *companyDelivery) Mount(group *echo.Group) {
-
-	// TODO:
-	// 1. Buatlah handler yang mengarah ke fungsi comp.GetDetailCompanyHandler
-	// 2. Buatlah handler yang mengarah ke fungsi comp.UpdateOrCreateCompanyHandler
 	group.GET("", comp.GetDetailCompanyHandler)
 	group.POST("", comp.UpdateOrCreateCompanyHandler)
 	group.POST("/topup", comp.TopupBalanceHandler)
 
 }
 
+// GetDetailCompanyHandler handles the delivery of the path that gets the company detail
 func (comp *companyDelivery) GetDetailCompanyHandler(e echo.Context) error {
 	ctx := e.Request().Context()
 
@@ -44,6 +43,7 @@ func (comp *companyDelivery) GetDetailCompanyHandler(e echo.Context) error {
 
 }
 
+// UpdateOrCreateCompanyHandler handles the delivery of the path that inserts or updates the company
 func (comp *companyDelivery) UpdateOrCreateCompanyHandler(e echo.Context) error {
 	ctx := e.Request().Context()
 
@@ -66,10 +66,10 @@ func (comp *companyDelivery) UpdateOrCreateCompanyHandler(e echo.Context) error 
 	return helper.ResponseSuccessJson(e, "success", company)
 }
 
+// TopupBalanceHandler handles the delivery of the path that top ups the balance of the company
 func (comp *companyDelivery) TopupBalanceHandler(e echo.Context) error {
 	ctx := e.Request().Context()
 
-	//TODO: lakukan validasi request disini
 	var req request.TopupCompanyBalance
 
 	if err := e.Bind(&req); err != nil {

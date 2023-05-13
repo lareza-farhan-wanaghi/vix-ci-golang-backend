@@ -30,8 +30,8 @@ type (
 	}
 )
 
+// ResponseSuccessJson responds the context with a success json
 func ResponseSuccessJson(c echo.Context, message string, data interface{}) error {
-
 	if message == "" {
 		message = "success"
 	}
@@ -45,6 +45,7 @@ func ResponseSuccessJson(c echo.Context, message string, data interface{}) error
 	return c.JSON(http.StatusOK, res)
 }
 
+// ResponseValidationErrorJson responds the context with a fail json indicating a validation error
 func ResponseValidationErrorJson(c echo.Context, message string, detail interface{}) error {
 	res := errorJson{
 		Message: message,
@@ -55,6 +56,7 @@ func ResponseValidationErrorJson(c echo.Context, message string, detail interfac
 	return c.JSON(http.StatusBadRequest, res)
 }
 
+// ResponseErrorJson responds the context with a fail json
 func ResponseErrorJson(c echo.Context, code int, err error) error {
 	res := errorJson{
 		Error: err.Error(),

@@ -19,10 +19,12 @@ type PositionDelivery interface {
 	Mount(group *echo.Group)
 }
 
+// NewPositionDelivery returns the delivery implementation of the position group path
 func NewPositionDelivery(positionUsecase model.PositionUsecase) PositionDelivery {
 	return &positionDelivery{positionUsecase: positionUsecase}
 }
 
+// Mount mounts the available paths of the position group path
 func (p *positionDelivery) Mount(group *echo.Group) {
 	group.GET("", p.FetchPositionHandler)
 	group.POST("", p.StorePositionHandler)
@@ -31,6 +33,7 @@ func (p *positionDelivery) Mount(group *echo.Group) {
 	group.PUT("/:id", p.EditPositionHandler)
 }
 
+// FetchPositionHandler handles the delivery of the path that gets all position data
 func (p *positionDelivery) FetchPositionHandler(c echo.Context) error {
 	ctx := c.Request().Context()
 
@@ -49,6 +52,7 @@ func (p *positionDelivery) FetchPositionHandler(c echo.Context) error {
 
 }
 
+// StorePositionHandler handles the delivery of the path that inserts a new position data
 func (p *positionDelivery) StorePositionHandler(c echo.Context) error {
 	ctx := c.Request().Context()
 
@@ -71,6 +75,7 @@ func (p *positionDelivery) StorePositionHandler(c echo.Context) error {
 	return helper.ResponseSuccessJson(c, "success", position)
 }
 
+// DetailPositionHandler handles the delivery of the path that gets position data
 func (p *positionDelivery) DetailPositionHandler(c echo.Context) error {
 	ctx := c.Request().Context()
 
@@ -87,6 +92,7 @@ func (p *positionDelivery) DetailPositionHandler(c echo.Context) error {
 
 }
 
+// DeletePositionHandler handles the delivery of the path that deletes position data
 func (p *positionDelivery) DeletePositionHandler(c echo.Context) error {
 	ctx := c.Request().Context()
 
@@ -103,10 +109,10 @@ func (p *positionDelivery) DeletePositionHandler(c echo.Context) error {
 
 }
 
+// EditPositionHandler handles the delivery of the path that updates position data
 func (p *positionDelivery) EditPositionHandler(c echo.Context) error {
 	ctx := c.Request().Context()
 
-	//TODO: lakukan validasi request disini
 	var req request.PositionRequest
 
 	if err := c.Bind(&req); err != nil {

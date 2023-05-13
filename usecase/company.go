@@ -13,10 +13,12 @@ type companyUsecase struct {
 	companyRepo model.CompanyRepository
 }
 
+// NewCompanyUsecase returns the usecase implementation of the company group path
 func NewCompanyUsecase(repo model.CompanyRepository) model.CompanyUsecase {
 	return &companyUsecase{companyRepo: repo}
 }
 
+// GetCompanyInfo handles the usecase of the path that gets the company data
 func (c *companyUsecase) GetCompanyInfo(ctx context.Context) (*response.CompanyResp, int, error) {
 	company, err := c.companyRepo.Get(ctx)
 	if err != nil {
@@ -27,6 +29,7 @@ func (c *companyUsecase) GetCompanyInfo(ctx context.Context) (*response.CompanyR
 	return resp, http.StatusOK, err
 }
 
+// GetCompanyInfo handles the usecase of the path that creates or updates the company data
 func (c *companyUsecase) CreateOrUpdateCompany(ctx context.Context, req request.CompanyRequest) (*response.CompanyResp, int, error) {
 	company, err := c.companyRepo.CreateOrUpdate(ctx, &model.Company{
 		Name:    req.Name,
@@ -42,6 +45,7 @@ func (c *companyUsecase) CreateOrUpdateCompany(ctx context.Context, req request.
 
 }
 
+// GetCompanyInfo handles the usecase of the path that top ups the balance of the company data
 func (c *companyUsecase) TopupBalance(ctx context.Context, req request.TopupCompanyBalance) (*response.CompanyResp, int, error) {
 	company, err := c.companyRepo.AddBalance(ctx, req.Balance)
 	if err != nil {

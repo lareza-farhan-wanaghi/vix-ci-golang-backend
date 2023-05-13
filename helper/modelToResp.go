@@ -6,6 +6,7 @@ import (
 	"strconv"
 )
 
+// NewUserResp returns user data in the user response format
 func NewUserResp(user *model.User) *response.UserResp {
 	var position *response.PositionResp
 	if user.Position != nil {
@@ -26,6 +27,7 @@ func NewUserResp(user *model.User) *response.UserResp {
 	}
 }
 
+// NewPositionResp returns position data in the position response format
 func NewPositionResp(position *model.Position) *response.PositionResp {
 	return &response.PositionResp{
 		Id:        strconv.Itoa(int(position.ID)),
@@ -36,6 +38,7 @@ func NewPositionResp(position *model.Position) *response.PositionResp {
 	}
 }
 
+// NewCompanyResp returns company data in the company response format
 func NewCompanyResp(company *model.Company) *response.CompanyResp {
 	return &response.CompanyResp{
 		Id:        int(company.ID),
@@ -47,6 +50,7 @@ func NewCompanyResp(company *model.Company) *response.CompanyResp {
 	}
 }
 
+// NewTransactionResp returns transaction data in the transaction response format
 func NewTransactionResp(transaction *model.Transaction) *response.TransactionResp {
 	return &response.TransactionResp{
 		Id:        int(transaction.ID),

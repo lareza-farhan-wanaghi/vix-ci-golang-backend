@@ -10,10 +10,12 @@ type positionRepository struct {
 	Cfg config.Config
 }
 
+// NewPositionRepository returns the repository of the position model
 func NewPositionRepository(cfg config.Config) model.PositionRepository {
 	return &positionRepository{Cfg: cfg}
 }
 
+// FindByID gets position data by its ID
 func (p *positionRepository) FindByID(ctx context.Context, id int) (*model.Position, error) {
 	position := new(model.Position)
 
@@ -24,6 +26,7 @@ func (p *positionRepository) FindByID(ctx context.Context, id int) (*model.Posit
 	return position, nil
 }
 
+// FindByID gets position data by its ID
 func (p *positionRepository) Create(ctx context.Context, position *model.Position) (*model.Position, error) {
 	if err := p.Cfg.Database().WithContext(ctx).Create(&position).Error; err != nil {
 		return nil, err
@@ -31,6 +34,7 @@ func (p *positionRepository) Create(ctx context.Context, position *model.Positio
 	return position, nil
 }
 
+// UpdateByID updates position data by its ID
 func (p *positionRepository) UpdateByID(ctx context.Context, id int, position *model.Position) (*model.Position, error) {
 	if err := p.Cfg.Database().WithContext(ctx).
 		Model(&model.Position{}).Where("id = ?", id).Updates(position).Find(position).Error; err != nil {
@@ -40,9 +44,8 @@ func (p *positionRepository) UpdateByID(ctx context.Context, id int, position *m
 	return position, nil
 }
 
+// Delete deletes position data
 func (p *positionRepository) Delete(ctx context.Context, id int) error {
-
-	// TODO: Buat fungsi untuk mengapus posisi
 	_, err := p.FindByID(ctx, id)
 
 	if err != nil {
@@ -59,8 +62,8 @@ func (p *positionRepository) Delete(ctx context.Context, id int) error {
 
 }
 
+// Fetch gets all position data
 func (p *positionRepository) Fetch(ctx context.Context, limit, offset int) ([]*model.Position, error) {
-	// TODO: Buat fungsi untuk mendapatkan data position berdasarkan parameter
 	var data []*model.Position
 
 	if err := p.Cfg.Database().WithContext(ctx).

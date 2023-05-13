@@ -16,14 +16,17 @@ type TransactionDelivery interface {
 	Mount(group *echo.Group)
 }
 
+// NewTransactionDelivery returns the delivery implementation of the transaction group path
 func NewTransactionDelivery(transactionUsecase model.TransactionUsecase) TransactionDelivery {
 	return &transactionDelivery{transactionUsecase: transactionUsecase}
 }
 
+// Mount mounts the available paths of the transaction group path
 func (p *transactionDelivery) Mount(group *echo.Group) {
 	group.GET("", p.FetchTransactionHandler)
 }
 
+// FetchTransactionHandler handles the delivery of the path that gets all transaction data
 func (p *transactionDelivery) FetchTransactionHandler(c echo.Context) error {
 	ctx := c.Request().Context()
 

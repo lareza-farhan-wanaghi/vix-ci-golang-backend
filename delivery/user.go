@@ -19,10 +19,12 @@ type UserDelivery interface {
 	Mount(group *echo.Group)
 }
 
+// NewUserDelivery returns the delivery implementation of the user group path
 func NewUserDelivery(userUsecase model.UserUsecase) UserDelivery {
 	return &userDelivery{userUsecase: userUsecase}
 }
 
+// Mount mounts the available paths of the user group path
 func (p *userDelivery) Mount(group *echo.Group) {
 	group.GET("", p.FetchUserHandler)
 	group.POST("", p.StoreUserHandler)
@@ -32,6 +34,7 @@ func (p *userDelivery) Mount(group *echo.Group) {
 	group.POST("/withdraw", p.WithdrawHandler)
 }
 
+// FetchUserHandler handles the delivery of the path that gets all user data
 func (p *userDelivery) FetchUserHandler(c echo.Context) error {
 	ctx := c.Request().Context()
 
@@ -50,6 +53,7 @@ func (p *userDelivery) FetchUserHandler(c echo.Context) error {
 
 }
 
+// StoreUserHandler handles the delivery of the path that inserts user data
 func (p *userDelivery) StoreUserHandler(c echo.Context) error {
 	ctx := c.Request().Context()
 
@@ -73,6 +77,7 @@ func (p *userDelivery) StoreUserHandler(c echo.Context) error {
 	return helper.ResponseSuccessJson(c, "success", user)
 }
 
+// DetailUserHandler handles the delivery of the path that gets user data
 func (p *userDelivery) DetailUserHandler(c echo.Context) error {
 	ctx := c.Request().Context()
 
@@ -89,6 +94,7 @@ func (p *userDelivery) DetailUserHandler(c echo.Context) error {
 
 }
 
+// DeleteUserHandler handles the delivery of the path that deletes user data
 func (p *userDelivery) DeleteUserHandler(c echo.Context) error {
 	ctx := c.Request().Context()
 
@@ -105,6 +111,7 @@ func (p *userDelivery) DeleteUserHandler(c echo.Context) error {
 
 }
 
+// EditUserHandler handles the delivery of the path that updates user data
 func (p *userDelivery) EditUserHandler(c echo.Context) error {
 	ctx := c.Request().Context()
 
@@ -131,6 +138,7 @@ func (p *userDelivery) EditUserHandler(c echo.Context) error {
 	return helper.ResponseSuccessJson(c, "Success edit", user)
 }
 
+// WithdrawHandler handles the delivery of the path that withdraws a user's salary
 func (p *userDelivery) WithdrawHandler(c echo.Context) error {
 	ctx := c.Request().Context()
 	var req request.WithdrawRequest

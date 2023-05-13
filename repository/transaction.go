@@ -11,10 +11,12 @@ type transactionRepository struct {
 	Cfg config.Config
 }
 
+// NewTransactionRepository returns the repository of the transaction model
 func NewTransactionRepository(cfg config.Config) model.TransactionRepository {
 	return &transactionRepository{Cfg: cfg}
 }
 
+// Fetch gets all transaction data
 func (t *transactionRepository) Fetch(ctx context.Context, limit, offset int) ([]*model.Transaction, error) {
 	var data []*model.Transaction
 
@@ -26,6 +28,7 @@ func (t *transactionRepository) Fetch(ctx context.Context, limit, offset int) ([
 	return data, nil
 }
 
+// FindByNoteAndBeweenDates gets transaction data by its note and dates
 func (t *transactionRepository) FindByNoteAndBeweenDates(ctx context.Context, note string, startDate time.Time, endDate time.Time) (*model.Transaction, error) {
 	var data *model.Transaction
 

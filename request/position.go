@@ -11,6 +11,7 @@ type (
 	}
 )
 
+// Validate validates the position request data
 func (req PositionRequest) Validate() error {
 	return validation.ValidateStruct(
 		&req,

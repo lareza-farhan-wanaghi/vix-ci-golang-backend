@@ -11,8 +11,8 @@ import (
 	"gorm.io/gorm"
 )
 
+// InitGorm initializes a gorm DB object with a postgres connection
 func InitGorm() *gorm.DB {
-
 	connection := os.Getenv("DATABASE_URL")
 
 	db, err := gorm.Open(postgres.Open(connection))
@@ -33,6 +33,7 @@ func InitGorm() *gorm.DB {
 	return db
 }
 
+// SeedData inserts initial data into the database
 func SeedData(DB *gorm.DB, seeds ...interface{}) {
 	for _, seed := range seeds {
 		var count int64

@@ -14,8 +14,7 @@ type (
 	}
 )
 
-// TODO: tuliskan validasi untuk CompanyRequest dengan rule semua field required
-
+// Validate validates the company request data
 func (req CompanyRequest) Validate() error {
 	return validation.ValidateStruct(
 		&req,
@@ -25,6 +24,7 @@ func (req CompanyRequest) Validate() error {
 	)
 }
 
+// Validate validates the top up request data
 func (req TopupCompanyBalance) Validate() error {
 	return validation.ValidateStruct(
 		&req,

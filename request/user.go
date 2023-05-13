@@ -21,6 +21,7 @@ type (
 	}
 )
 
+// Validate validates the withdraw request data
 func (req WithdrawRequest) Validate() error {
 	return validation.ValidateStruct(&req,
 		validation.Field(&req.ID, validation.Required),
@@ -28,6 +29,7 @@ func (req WithdrawRequest) Validate() error {
 	)
 }
 
+// Validate validates the user request data
 func (req UserRequest) Validate() error {
 	return validation.ValidateStruct(
 		&req,
